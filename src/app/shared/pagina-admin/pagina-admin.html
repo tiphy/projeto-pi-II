@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Pagina do administrador</title>
+</head>
+ 
+<style>
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif; 
+    background-color: #ffff; 
+    color: #333;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    background:rgba(255, 255, 255, 0.90);
+    width: 100%;
+    position: fixed;
+    padding: 20px 50px;
+    top: 0;
+    z-index: 10;
+    justify-content: space-between;
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+    gap: 100px;
+   
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    padding: 0px 32px;
+    padding-bottom: 10px;
+}
+
+a:hover {
+    color: #333333;
+    border-bottom: 2px solid #727272;
+}
+    
+header nav a {
+    text-transform: lowercase;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.btn-login {
+    padding: 8px 20px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px #7c7c7c; 
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: lowercase;
+    width: 90px;
+    transition: all 0.2s ease; 
+ 
+}
+
+.btn-login:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px #5c5c5c;
+}
+
+.right-nav img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.btn-login-carrino-lupa{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+.login-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    background: rgba(255, 255, 255, 0.85); 
+    margin: 200px auto 0 auto; 
+    width: 560px;
+    height: 400px;
+    border-radius: 16px;
+    padding: 40px 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+
+/*------------amanda-principal---------------*/
+
+.amanda-principal {
+    width: 30%;
+    margin: 0 5px  ;
+    margin-top: 5px;
+    margin-left: 0;
+    overflow: hidden;
+}
+
+.container-principal{
+    background-color: #c5c3bf;
+    display: flex;
+    margin-top: 100px;
+
+}
+.container-principal h1{
+    text-align: left;
+    justify-content: center;
+    margin-top: 150px;
+    width: 500px;
+    font-weight: bold;
+    font-size: 70px;
+    margin-left: 10%;
+    color: #f3f3f3;
+    text-shadow: 0 5px 8px #5c5c5c;
+}
+
+
+/*------------pagina-principal-produtos------------*/
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+.secao-produtos {
+    margin-top: 60px;
+}
+
+.secao-produtos h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
+}
+
+.card-produto {
+    text-align: left;
+}
+
+.imagem-container {
+    background-color: #f7f7f7;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.card-produto img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.card-produto:hover img{
+     transform: scale(1.05); 
+}
+
+.nome-produto {
+    font-size: 1rem; 
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.preco-produto {
+   font-size: 0.9rem; 
+    color: #555;
+    padding-bottom: 15px; 
+    position: relative; 
+}
+
+.preco-produto::after{
+    content: ''; 
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 1px; 
+    background-color: #e0e0e0; 
+}
+
+
+/* ------------------botao-----------------*/
+
+.section-footer {
+    text-align: center; 
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+.btn-mostrar-todos {
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    border-radius: 20px; 
+    cursor: pointer; 
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.btn-mostrar-todos:hover {
+    background-color: #f3f3f3;
+    transform: scale(1.05); 
+}
+
+
+</style>
+
+<body>
+
+<!--  ----------------navegaçao---------------------- -->
+
+    <header>
+        <img src="/public/assets/images/simons-logo.png" alt="logo da marca" style=" width: 160px; margin-left: 50px; margin-top: 0.2px;">
+        <nav>
+            <ul>
+                <li><a href="#"> casual</a></li>
+                <li><a href="#">social</a></li>
+            </ul>
+        </nav>
+<button class="btn-login" href="#" style="margin-left: 200px; margin-right: -270px;">Login</button>
+        <div class="nav-right">
+            <img src="/public/assets/images/carrinho.png" alt="imagem do carrinho de compras" style="width: 20px; margin: 5px; margin-right: 30px;"> 
+            <img src="/public/assets/images/lupa.png" alt="imagem da lupa" style="width: 20px; margin: 5px; margin-right: 30px;">
+            <img src="/public/assets/images/tres-pontos.png" alt="imagem tres pontos" style="width: 20px; margin: 5px; margin-right: 30px;">
+        </div>   
+    </header>
+
+<!-- -------------------amanda------------------------ -->
+
+<main class="container">
+    <div class="container-principal">
+        <img class="amanda-principal" src="/public/assets/images/amanda-admin.jpeg" alt="amanda pagina do admin">
+        <h1>É muito <br> bom te<br> ter de<br> volta aqui!</h1>
+    </div>
+
+<!-- -----------------camisetas---------------------- -->
+
+  <div class="page-container"> 
+        <section class="camisetas">
+            <section class="secao-produtos">
+                <h2>Camisetas</h2>
+
+                <div class="grade-produtos">
+                    <div class="card-produto">
+                        <div class="imagem-container">
+                            <img src="/public/assets/images/simons.png" alt="Camiseta Simons" style="width: 390px;">
+                        </div>
+                        <p class="nome-produto">Camiseta Simons</p>
+                        <p class="preco-produto">R$ 59,90</p>
+                    </div>
+
+                    <div class="card-produto">
+                        <div class="imagem-container">
+                            <img src="/public/assets/images/simao.png" alt="Camiseta Simão">
+                        </div>
+                        <p class="nome-produto">Camiseta Simão</p>
+                        <p class="preco-produto">R$ 59,90</p>   
+                    </div>
+
+                    <div class="card-produto">
+                        <div class="imagem-container">
+                            <img src="/public/assets/images/amanda-pb.png" alt="Camiseta Amanda P&B">
+                        </div>
+                        <p class="nome-produto">Camiseta Amanda P&B</p>
+                        <p class="preco-produto">R$ 59,90</p> 
+                    </div>
+                </div>
+
+                <div class="section-footer">
+                    <button class="btn-mostrar-todos">mostrar todos</button>
+                </div>
+            </section>
+        </section>
+
+<!-- -----------------social-------------------- -->
+
+        <section class="social"> 
+            <section class="secao-produtos">
+                <h2>Social</h2>
+
+                <div class="grade-produtos">
+                    <div class="card-produto">
+                        <div class="imagem-container">
+                            <img src="/public/assets/images/social-bege.jpg" alt="amanda camisa social bege ">
+                        </div>
+                        <p class="nome-produto">Camisa Social Bege</p>
+                        <p class="preco-produto">R$ 59,90</p>
+                    </div>
+
+                    <div class="card-produto">
+                        <div class="imagem-container">
+                            <img src="/public/assets/images/social-polo.jpg" alt="amanda camisa social polo">
+                        </div>
+                        <p class="nome-produto">Camiseta Polo</p>
+                        <p class="preco-produto">R$ 59,90</p>
+                    </div>
+
+                    <div class="card-produto">
+                        <div class="imagem-container">
+                            <img src="/public/assets/images/social-azul.png" alt="amanda camisa social azul">
+                        </div>
+                        <p class="nome-produto">Camisa Social Azul</p>
+                        <p class="preco-produto">R$ 59,90</p>
+                    </div>
+                </div>
+                <div class="section-footer">
+                    <button class="btn-mostrar-todos">mostrar todos</button>
+                </div>
+            </section>
+        </section>
+
+    </div>
+</main>            
+
+<!--
+
+    <footer>
+        <div class="container">
+        @2025 Simons
+    </div>
+    </footer>
+    -->
+</body>
+</html>
